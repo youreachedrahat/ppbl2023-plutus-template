@@ -1,2 +1,4 @@
 dist-newstyle/
 output/
+
+bash-scripts/variables-private.sh

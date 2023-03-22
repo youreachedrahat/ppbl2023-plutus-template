@@ -1,3 +1,5 @@
+#!/bin/bash
+
 walletName=$1
 mkdir $walletName
 cd $walletName
