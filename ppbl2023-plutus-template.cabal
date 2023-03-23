@@ -46,6 +46,7 @@ library
 
   exposed-modules:    AlwaysSucceeds.Compiler
                     , AlwaysSucceeds.Validator
+                    , AlwaysSucceeds.TypedValidator
 
   build-depends:       base ^>=4.14.3.0
                     , aeson

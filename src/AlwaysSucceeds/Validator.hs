@@ -13,6 +13,3 @@ myValidator _ _ _ = ()
 
 validator :: Validator
 validator = mkValidatorScript $$(compile [||myValidator||])
-
-
-
