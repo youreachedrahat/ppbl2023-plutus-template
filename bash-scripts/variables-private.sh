@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Make a copy of this file with the name variables-private.sh
-# Then, set these variables:
+# Then, set the CARDANO_NODE_SOCKET_PATH to match your local set-up
 
 export CARDANO_NODE_SOCKET_PATH=/home/james/hd2/cardano/testnet-pre-production/db/node.socket
 
-export SENDERADDRESS="addr_test1qzn5fy9fk0xtqu4dqj388yqgptc96ya59xmykar2wl9nyp8295qttd3pvl66xupfwgkh639qc7064uk7hyla9wjpvyuqr9s662"
-export SENDERKEY="/home/james/hd2/ppbl2023/jd-private-ppbl2023/jd-ppbl2023-wallet/payment.skey"
+# Optionally, you can add your CLI address and private key to a file like this, for more efficient accces:
+# export SENDERADDRESS=""
+# export SENDERKEY=""
