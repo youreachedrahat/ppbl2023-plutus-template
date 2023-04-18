@@ -96,6 +96,13 @@ package cardano-wallet-launcher
 package cardano-wallet-core-integration
   optimization: False
 
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/plutus-apps.git
+  tag: v1.1.0
+  subdir:
+    plutus-script-utils
+
 -- Direct dependency.
 -- Compared to others, cardano-wallet doesn't bump dependencies very often.
 -- Making it a good place to start when bumping dependencies.
@@ -133,5 +140,3 @@ source-repository-package
       libs/small-steps
       libs/small-steps-test
       libs/non-integral
-
-

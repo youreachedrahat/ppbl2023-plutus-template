@@ -47,6 +47,8 @@ library
   exposed-modules:    AlwaysSucceeds.Compiler
                     , AlwaysSucceeds.Validator
                     , AlwaysSucceeds.TypedValidator
+                    , Tokens.Compiler
+                    , Tokens.Minter
 
   build-depends:       base ^>=4.14.3.0
                     , aeson
@@ -55,6 +57,7 @@ library
                     , cardano-api
                     , data-default
                     , plutus-ledger-api
+                    , plutus-script-utils
                     , plutus-tx-plugin
                     , plutus-tx
                     , text
