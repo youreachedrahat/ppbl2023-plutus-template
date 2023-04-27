@@ -49,6 +49,7 @@ library
                     , AlwaysSucceeds.TypedValidator
                     , Tokens.Compiler
                     , Tokens.Minter
+                    , PPBLNFT.Compiler
                     , PPBLNFT.Minter
 
   build-depends:       base ^>=4.14.3.0

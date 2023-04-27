@@ -2,3 +2,7 @@ dist-newstyle/
 output/
 
 bash-scripts/variables-private.sh
+bash-scripts/metadata.json
+bash-scripts/ppbl-nft.json
+
+bash-scripts/metadata/
