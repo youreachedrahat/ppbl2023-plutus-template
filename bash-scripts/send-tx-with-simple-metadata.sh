@@ -67,7 +67,7 @@ cardano-cli transaction build \
 --testnet-magic 1 \
 --tx-in $TX_IN \
 --change-address $ADDRESS \
---metadata-json-file metadata.json \
+--metadata-json-file ./metadata/message.json \
 --protocol-params-file protocol.json \
 --out-file tx-with-metadata.draft
 
