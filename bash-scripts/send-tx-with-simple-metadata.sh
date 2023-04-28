@@ -23,7 +23,7 @@ echo "Lesson 203.1"
 echo ""
 echo "This script will help you build, sign, and submit a Cardano transaction with metadata."
 echo ""
-echo "Before you get started, make sure to create a metadata.json file,"
+echo "Before you get started, make sure to create a message.json file,"
 echo "as described in Lesson 203.1."
 echo ""
 echo "Press any key to continue."
@@ -32,11 +32,11 @@ echo "**************************************************************************
 echo ""
 read -n 1 -s
 echo ""
-if [ -e metadata.json ]; then
-  echo "Found metadata.json, with contents: "
-  cat metadata.json
+if [ -e ./metadata/message.json ]; then
+  echo "Found message.json, with contents: "
+  cat ./metadata/message.json
 else
-  echo "Please create a new file called metadata.json"
+  echo "Please create a new file in ./metadata named message.json"
   return
 fi
 echo ""
