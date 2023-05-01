@@ -28,7 +28,7 @@ echo "This script will guide you through the process of minting a PPBL NFT on Pr
 echo "Before you use this script, please complete the following steps:"
 echo ""
 echo "  1. Send your PPBL 2023 Token to your CLI Wallet."
-echo "  2. Prepare a nft.json file as described in Lesson 203.2 and Assignment 203.1"
+echo "  2. Prepare a ppbl-nft.json file as described in Lesson 203.2 and Assignment 203.1"
 echo ""
 echo ""
 echo "This uses a reference UTxO for the smart contract."
