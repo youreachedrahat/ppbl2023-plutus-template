@@ -51,6 +51,7 @@ library
                     , Tokens.Minter
                     , PPBLNFT.Compiler
                     , PPBLNFT.Minter
+                    , FaucetMiniProject.Validator
 
   build-depends:       base ^>=4.14.3.0
                     , aeson
