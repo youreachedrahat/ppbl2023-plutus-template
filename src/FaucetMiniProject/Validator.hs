@@ -78,24 +78,11 @@ treasuryValidator fp datum redeemer ctx =
       checkDatum = case getDatum of
         Nothing -> False
         Just d -> d == datum
-   in traceIfFalse "Need access token" inputHasAccessToken
-        && traceIfFalse "Need access token" outputHasAccessToken
-        && traceIfFalse "Need access token" outputHasFaucetToken
-        && traceIfFalse "Need access token" faucetContractGetsRemainingTokens
-        && traceIfFalse "Need access token" checkDatum
-
--- TOKEN GATING
--- check that accessToken is present -- no need for accessTokenName?
-
--- RATE LIMIT
--- check withdrawalAmount of faucetTokenSymbol with faucetTokenName
-
--- SOME STUFF
--- check that tokens are sent to PKH - this is one way to handle Eternl multi-address
--- check that datum int is correct...but this is just for show. what else could datum do?
-
--- In the case where there is less than the datum amount, allow there to be no UTxO returned to faucet contract.
--- Change this contract to handle the case where its originator can empty it
+   in traceIfFalse "Input must include PPBL 2023 token" inputHasAccessToken
+        && traceIfFalse "Must send PPBL 2023 token back to sender" outputHasAccessToken
+        && traceIfFalse "Sender must receive faucet tokens" outputHasFaucetToken
+        && traceIfFalse "Must return remaining faucet tokens to contract address" faucetContractGetsRemainingTokens
+        && traceIfFalse "Cannot change datum" checkDatum
 
 data FaucetTypes
 

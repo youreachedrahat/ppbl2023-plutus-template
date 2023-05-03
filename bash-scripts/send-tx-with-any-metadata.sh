@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: . send-tx-with-simple-metadata.sh (path-to-wallet-directory)"
+  echo "Usage: . send-tx-with-any-metadata.sh (path-to-wallet-directory)"
   return
 fi
 
@@ -32,13 +32,12 @@ echo "**************************************************************************
 echo ""
 read -n 1 -s
 echo ""
-if [ -e ./metadata/message.json ]; then
-  echo "Found message.json, with contents: "
-  cat ./metadata/message.json
-else
-  echo "Please create a new file in ./metadata named message.json"
-  return
-fi
+
+echo "Enter path to metadata file:"
+read METADATA_FILE_PATH
+
+echo "Found message.json, with contents: "
+cat $METADATA_FILE_PATH
 echo ""
 echo ""
 echo "You will send a transaction back to your address:"
@@ -67,7 +66,7 @@ cardano-cli transaction build \
 --testnet-magic 1 \
 --tx-in $TX_IN \
 --change-address $ADDRESS \
---metadata-json-file ./metadata/message.json \
+--metadata-json-file $METADATA_FILE_PATH \
 --protocol-params-file protocol.json \
 --out-file tx-with-metadata.draft
 
