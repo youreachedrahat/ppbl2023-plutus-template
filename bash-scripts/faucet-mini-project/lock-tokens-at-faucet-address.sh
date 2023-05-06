@@ -7,8 +7,6 @@ source ../getTxFunc.sh
 rm build-tx.sh
 touch build-tx.sh
 
-DATUM_FILE="faucet-datum.json"
-
 echo "Enter path to CLI Wallet directory"
 read WALLET
 echo ""
@@ -22,6 +20,10 @@ echo ""
 
 cardano-cli address build --payment-script-file $PATH_TO_FAUCET_SCRIPT --testnet-magic 1 --out-file faucet.addr
 FAUCET_ADDRESS=$(cat faucet.addr)
+
+echo "Enter path to datum file:"
+read PATH_TO_DATUM_FILE
+echo ""
 
 echo "cardano-cli transaction build \\" > build-tx.sh
 echo "--babbage-era \\" >> build-tx.sh
@@ -51,7 +53,7 @@ read TOKENS_TO_FAUCET
 TOKENS_BACK_TO_ISSUER=$(expr $TOKENS_IN - $TOKENS_TO_FAUCET)
 
 echo "--tx-out $FAUCET_ADDRESS+\"2000000 + $TOKENS_TO_FAUCET $FAUCET_ASSET\" \\" >> build-tx.sh
-echo "--tx-out-inline-datum-file $DATUM_FILE \\" >> build-tx.sh
+echo "--tx-out-inline-datum-file $PATH_TO_DATUM_FILE \\" >> build-tx.sh
 echo "--tx-out $ADDRESS+\"2000000 + $TOKENS_BACK_TO_ISSUER $FAUCET_ASSET\" \\" >> build-tx.sh
 echo "--change-address $ADDRESS \\" >> build-tx.sh
 echo "--protocol-params-file protocol.json \\" >> build-tx.sh

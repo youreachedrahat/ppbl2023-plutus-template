@@ -7,6 +7,8 @@ source ../getTxFunc.sh
 rm build-tx.sh
 touch build-tx.sh
 
+# Instead of prompting for input in the terminal (which can get annoying during a testing phase!),
+# you can add the file paths to Datum and Redeemer files here.
 DATUM_FILE="faucet-datum.json"
 REDEEMER_FILE="faucet-redeemer.json"
 
