@@ -1,0 +1,19 @@
+SENDERADDRESS=addr_test1qrw2cf9kcxnggz7yrvfuxsscvwuh3mfx4mcndjr4s9n93fsuzzw3meyas87hd5l8y8pl209l99dfv0m4y5kvpdt0ym5s7v9pnm
+SENDERKEY=~/workspace/repo/wallet/payment.skey
+
+cardano-cli query utxo --testnet-magic 1 --address $SENDERADDRESS
+
+UTXO_IN=<TxHash>#<TxId>
+RECIPIENT_ADDRESS=<Any preprod address>
+
+LOVELACE_TO_LOCK=<number of lovalace want to lock-in>
+
+
+
+
+
+
+
+
+
+ALWAYS_SUCCEEDS_ADDRESS_PLUTUSTX=addr_test1wqag3rt979nep9g2wtdwu8mr4gz6m4kjdpp5zp705km8wys6t2kla

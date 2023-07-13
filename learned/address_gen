@@ -1,0 +1,24 @@
+cardano-cli address key-gen --verification-key-file payment.vkey --signing-key-file payment.skey
+//cardano-cli address key-gen (generate payment key public and private)
+
+
+
+ cardano-cli stake-address key-gen --verification-key-file stake.vkey --signing-key-file stake.skey
+  cardano-cli stake-address key-gen (generate stake files)
+
+
+  cardano-cli address build \
+--payment-verification-key-file payment.vkey \
+--stake-verification-key-file stake.vkey \
+--out-file payment.addr --testnet-magic 1
+// create address on network using above files
+
+
+=====================================================
+
+Build a Contract Address
+
+cardano-cli address build --testnet-magic 1 --payment-script-file <scriptName.plutus>
+
+
+======================================================================

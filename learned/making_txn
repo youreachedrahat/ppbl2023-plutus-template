@@ -1,0 +1,67 @@
+//transaction build
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $UTXO_IN \
+--tx-out $RECIPIENT_ADDRESS+$LOVELACE_TO_SEND \
+--change-address $SENDERADDRESS \
+--out-file simple-tx.raw
+
+
+//Transcation sign
+cardano-cli transaction sign \
+--signing-key-file $SENDERKEY \
+--testnet-magic 1 \
+--tx-body-file simple-tx.raw \
+--out-file simple-tx.signed
+
+//and Submit
+cardano-cli transaction submit \
+--tx-file simple-tx.signed \
+--testnet-magic 1
+
+
+//Putting it all together: can be run all 3 command togther
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $UTXO_IN \
+--tx-out $SENDERADDRESS+$LOVELACE_TO_SEND \
+--change-address $SENDERADDRESS \
+--out-file simple-tx.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDERKEY \
+--testnet-magic 1 \
+--tx-body-file simple-tx.raw \
+--out-file simple-tx.signed
+
+cardano-cli transaction submit \
+--tx-file simple-tx.signed \
+--testnet-magic 1
+
+
+
+=====================================================
+using datum 
+
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $UTXO_IN \
+--tx-out $ALWAYS_SUCCEEDS_ADDRESS_PLUTUSTX+$LOVELACE_TO_LOCK \
+--tx-out-inline-datum-value 1618 \
+--change-address $SENDER_ADDRESS \
+--out-file lock-always-succeeds.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDER_KEY \
+--testnet-magic 1 \
+--tx-body-file lock-always-succeeds.raw \
+--out-file lock-always-succeeds.signed
+
+cardano-cli transaction submit \
+--tx-file lock-always-succeeds.signed \
+--testnet-magic 1
+
+===============================================================================

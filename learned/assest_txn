@@ -1,0 +1,18 @@
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $TXIN_LOVELACE \
+--tx-in $TXIN_WITH_PPBL2023_TOKEN \
+--tx-out $BROWSER_ADDRESS+"1500000 + 1 $PPBL2023_ASSET_ID" \
+--change-address $SENDER_ADDRESS \
+--out-file send-contrib-token.raw
+
+cardano-cli transaction sign \
+--signing-key-file $SENDER_KEY \
+--testnet-magic 1 \
+--tx-body-file send-contrib-token.raw \
+--out-file send-contrib-token.signed
+
+cardano-cli transaction submit \
+--tx-file send-contrib-token.signed \
+--testnet-magic 1
