@@ -1,0 +1,28 @@
+
+
+cardano-cli transaction build \
+--babbage-era \
+--testnet-magic 1 \
+--tx-in $CONTRIBUTOR_TOKEN_TX_IN \
+--tx-in $FEES_AND_COLLATERAL_TX_IN \
+--tx-in-collateral $FEES_AND_COLLATERAL_TX_IN \
+--tx-in $CONTRACT_TX_IN \
+--spending-tx-in-reference e4155f5ef706a87611a99c16fc030ad8efa276cb2f59a1332bcee564736eb547#0 \
+--spending-plutus-script-v2 \
+--spending-reference-tx-in-inline-datum-present \
+--spending-reference-tx-in-redeemer-file UpdateNumber.json \
+--tx-out $CONTRACT_ADDRESS+"2000000 + 1 $CONTRIBUTOR_REFERENCE_ASSET" \
+--tx-out-inline-datum-file NewDatum.json \
+--tx-out $SENDER_ADDRESS+"2000000 + 1 $CONTRIBUTOR_TOKEN_ASSET" \
+--change-address $SENDER_ADDRESS \
+--protocol-params-file protocol.json \
+--out-file contrib-updates-lucky-number.draft
+
+
+FEES_AND_COLLATERAL_TX_IN=dc74fb404f651ef7f35ca88bd53e5e9cf68541962f69e45ffe8b0111f6f387c7#0
+CONTRIBUTOR_TOKEN_TX_IN=6a5f9afd96d997e35fe51785c71801bb5f2e5cd74845a95b2d541eeb0a3330ad#1
+
+CONTRACT_TX_IN=6950b175c721353cb138d9143bdf8e296c91d52855fd33b82624748dd65767dd#0
+CONTRIBUTOR_REFERENCE_ASSET=05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056.3130305050424c32303233796f75726561636865645261686174
+CONTRIBUTOR_TOKEN_ASSET=05cf1f9c1e4cdcb6702ed2c978d55beff5e178b206b4ec7935d5e056.3232325050424c32303233796f75726561636865645261686174
+CONTRACT_ADDRESS=addr_test1wr6ewsvtmdjv8znh7wxvw9qezgwvju5rdk9gmgefvrvrhug7zrfe0
